@@ -27,15 +27,28 @@
 
         /* Hero section with a sepia filter to simulate an old photo */
         .hero-vintage {
-            /* The previous image URL might have been blocked by security policies.
-               This is a reliable placeholder image that will display correctly.
-               It mimics a sepia-toned vintage photo of a classic car on Route 66.
-            */
             background-image: url('./williamsaz.jpeg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-attachment: scroll; /* Changed from fixed for better mobile performance */
             filter: sepia(0.4) saturate(1.2) contrast(1.1);
+            min-height: 100vh; /* Full viewport height on mobile */
+            padding: 2rem 1rem; /* Add padding for mobile */
+        }
+
+        /* Media queries for responsive design */
+        @media screen and (max-width: 768px) {
+            .hero-vintage {
+                background-attachment: scroll; /* Ensure scroll on mobile */
+                background-position: top center;
+                min-height: 60vh; /* Shorter height on mobile */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hero-vintage {
+                min-height: 50vh; /* Even shorter on small phones */
+            }
         }
 
         /* Apply subtle box shadow and border to give a worn, paper feel to sections */
